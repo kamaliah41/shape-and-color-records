@@ -3,3 +3,4 @@
 .git
 .env
 storage/logs
+bootstrap/cache
