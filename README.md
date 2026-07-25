@@ -1,52 +1,62 @@
 # Shape and Color Records System
 
-A web-based role management system about shape and color records, developed using **Laravel 13** as part of an internship technical assessment.
+A web-based role management system for managing shape and color records, developed using **Laravel 13** as part of an internship technical assessment.
 
-It allows admin to manage shape and color records while users can view records in real time through a live data grid.
+The system allows administrators to manage shape and color records through a CRUD interface, while users can view records in real time using a live data grid.
 
-## Technologies Used
+---
+
+# Technologies Used
 
 - Laravel 13
-- PHP 8.4
+- PHP 8.4 or latest
 - MySQL
 - Bootstrap 5
 - JavaScript (Fetch API)
 - SweetAlert2
 - HTML & CSS
 
-## Tested Environment
+---
 
-The project has been successfully tested using:
+# Tested Environment
+
+This project was developed and tested using:
 
 - Windows 11
-- XAMPP
 - PHP 8.4
-- MySQL
+- MySQL (via XAMPP)
 - Composer
 - Node.js
 - Laravel 13
 
-## List of Features:
+> **Note:** The project was tested using XAMPP. However, any local development environment that supports **PHP 8.4+, MySQL, Composer, and Node.js** (e.g. Laragon, Herd, WAMP, or a standalone PHP/MySQL installation) can also be used.
 
-### Login System
+---
+
+# Features
+
+## Login System
+
 - Login as **Admin** or **User**
 - Role-based authentication
 - Username validation
 - Password validation
-- Show / Hide password
+- Show / Hide Password
 - Logout
 
-### Admin Portal
+## Admin Portal
+
 - Add new records
 - Edit existing records
-- Delete records
-- Shape & color dropdown selection
-- Shape with color preview
-- Success popup notifications
+- Delete existing records
+- Shape and colour dropdown selection
+- Shape with colour preview
+- Success and validation popup notifications
 - Total records counter
 - Automatic form switching (Submit → Update)
 
-### User Portal
+## User Portal
+
 - View records
 - Shape preview
 - Total records counter
@@ -55,7 +65,7 @@ The project has been successfully tested using:
 
 ---
 
-# Installation Guide:
+# Installation Guide
 
 ## 1. Clone the repository
 
@@ -63,19 +73,29 @@ The project has been successfully tested using:
 git clone https://github.com/kamaliah41/shape-and-color-records.git
 ```
 
-or download the ZIP file.
+Alternatively, download the project as a ZIP file and extract it.
 
 ---
 
-## 2. Open the project
+## 2. Open the project folder
+
+If using Git:
 
 ```bash
 cd shape-and-color-records
 ```
 
+If using the ZIP file, simply extract it and open the project folder using your preferred IDE or terminal.
+
 ---
 
-## 3. Install PHP dependencies
+## 3. Start your MySQL server
+
+Start your local MySQL server (e.g. XAMPP, Laragon, WAMP, Herd, or MySQL Server).
+
+---
+
+## 4. Install PHP dependencies
 
 ```bash
 composer install
@@ -83,7 +103,7 @@ composer install
 
 ---
 
-## 4. Install Node dependencies
+## 5. Install Node.js dependencies
 
 ```bash
 npm install
@@ -91,15 +111,15 @@ npm install
 
 ---
 
-## 5. Create environment file
+## 6. Create the environment file
 
-Duplicate
+Duplicate:
 
 ```
 .env.example
 ```
 
-Rename it to
+Rename it to:
 
 ```
 .env
@@ -107,7 +127,7 @@ Rename it to
 
 ---
 
-## 6. Generate application key
+## 7. Generate the application key
 
 ```bash
 php artisan key:generate
@@ -115,9 +135,9 @@ php artisan key:generate
 
 ---
 
-## 7. Create MySQL database
+## 8. Create the database
 
-Create a database named
+Create a MySQL database named:
 
 ```
 intern_assessment_db
@@ -125,21 +145,25 @@ intern_assessment_db
 
 ---
 
-## 8. Import database
+## 9. Import the database
 
-Import the provided SQL file
+Using phpMyAdmin or any MySQL client:
+
+1. Select the **intern_assessment_db** database.
+2. Click **Import**.
+3. Select:
 
 ```
 intern_assessment_db.sql
 ```
 
-using phpMyAdmin.
+4. Click **Go**.
 
 ---
 
-## 9. Configure database
+## 10. Configure the database connection
 
-Update the following inside `.env`
+Open the `.env` file and update the following:
 
 ```env
 DB_CONNECTION=mysql
@@ -150,19 +174,32 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-Modify the username and password according to your local MySQL configuration if required.
+Update the username and password according to your local MySQL configuration if necessary.
+
+Save the `.env` file after making the changes.
 
 ---
 
-## 10. Build frontend assets
+## 11. Clear Laravel cache
+
+```bash
+php artisan config:clear
+php artisan cache:clear
+```
+
+---
+
+## 12. Build frontend assets
 
 ```bash
 npm run build
 ```
 
+Wait until the build process completes successfully.
+
 ---
 
-## 11. Run the application
+## 13. Start the application
 
 ```bash
 php artisan serve
@@ -170,7 +207,9 @@ php artisan serve
 
 ---
 
-## 12. Open the application
+## 14. Open the application
+
+Open your web browser and visit:
 
 ```
 http://127.0.0.1:8000
@@ -180,7 +219,9 @@ http://127.0.0.1:8000
 
 # Default Login Credentials
 
-## Admin
+The following accounts are preloaded in the provided database for testing purposes.
+
+## Administrator
 
 | Username | Password |
 |----------|----------|
@@ -195,40 +236,46 @@ http://127.0.0.1:8000
 
 ---
 
-
 # Project Files Included
 
-- Source Code
+- Laravel Source Code
 - README.md
 - intern_assessment_db.sql
 
 ---
 
-# Notes
+# Troubleshooting
 
-- Developed using Laravel 13 and MySQL.
-- Database connection can be modified through the `.env` file.
-- Internet connection is required to load Bootstrap and SweetAlert2 CDN resources.
-- The application has been tested locally using XAMPP.
+### Unable to connect to the database?
 
-## If the application cannot connect to the database:
+- Ensure your MySQL server is running.
+- Ensure the database name is **intern_assessment_db**.
+- Verify the database credentials in the `.env` file.
 
-- Ensure MySQL service is running.
+Run the following commands:
 
-- Ensure the database name is: intern_assessment_db
+```bash
+php artisan config:clear
+php artisan cache:clear
+```
 
-- Verify your .env database credentials.
+Then restart the application:
 
-- Run
-
-- php artisan config:clear
-
-- php artisan cache:clear
-
-- restart the application.
+```bash
+php artisan serve
+```
 
 ---
 
-# Developed by:
+# Notes
 
-**Kamaliahnuruljannah Azman**
+- This project was developed using Laravel 13 and MySQL.
+- Composer and Node.js must be installed before running the application.
+- Internet access is required to load Bootstrap 5 and SweetAlert2 from their CDN.
+- The provided SQL file already contains the required user accounts and sample records for testing.
+
+---
+
+# Developed By
+
+**Kamaliahnuruljannah Binti Azman**
