@@ -25,6 +25,10 @@ COPY . .
 
 COPY --from=frontend /app/public/build ./public/build
 
+RUN mkdir -p bootstrap/cache
+
+RUN chmod -R 775 storage bootstrap/cache
+
 RUN composer install --no-dev --optimize-autoloader
 
 RUN php artisan config:clear
