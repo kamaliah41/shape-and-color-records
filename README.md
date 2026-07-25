@@ -1,58 +1,206 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Shape and Color Records System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A web-based role management system about shape and color records, developed using **Laravel 13** as part of an internship technical assessment.
 
-## About Laravel
+It allows admin to manage shape and color records while users can view records in real time through a live data grid.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Technologies Used
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Laravel 13
+- PHP 8.4+
+- MySQL
+- Bootstrap 5
+- JavaScript (Fetch API)
+- SweetAlert2
+- HTML & CSS
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## List of Features:
 
-## Learning Laravel
+### Login System
+- Login as **Admin** or **User**
+- Role-based authentication
+- Username validation
+- Password validation
+- Show / Hide password
+- Logout
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Admin Portal
+- Add new records
+- Edit existing records
+- Delete records
+- Shape & color dropdown selection
+- Shape with color preview
+- Success popup notifications
+- Total records counter
+- Automatic form switching (Submit → Update)
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### User Portal
+- View records
+- Shape preview
+- Total records counter
+- Live data updates (every 5 seconds)
+- Logout
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+# Installation Guide:
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 1. Clone the repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/kamaliah41/shape-and-color-records.git
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+or download the ZIP file.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 2. Open the project
 
-## Code of Conduct
+```bash
+cd shape-and-color-records
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 3. Install PHP dependencies
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+composer install
+```
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 4. Install Node dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 5. Create environment file
+
+Duplicate
+
+```
+.env.example
+```
+
+Rename it to
+
+```
+.env
+```
+
+---
+
+## 6. Generate application key
+
+```bash
+php artisan key:generate
+```
+
+---
+
+## 7. Create MySQL database
+
+Create a database named
+
+```
+intern_assessment_db
+```
+
+---
+
+## 8. Import database
+
+Import the provided SQL file
+
+```
+intern_assessment_db.sql
+```
+
+using phpMyAdmin.
+
+---
+
+## 9. Configure database
+
+Update the following inside `.env`
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=intern_assessment_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Modify the username and password according to your local MySQL configuration if required.
+
+---
+
+## 10. Build frontend assets
+
+```bash
+npm run build
+```
+
+---
+
+## 11. Run the application
+
+```bash
+php artisan serve
+```
+
+---
+
+## 12. Open the application
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+# Default Login Credentials
+
+## Admin
+
+| Username | Password |
+|----------|----------|
+| admin1 | 111222 |
+
+## Users
+
+| Username | Password |
+|----------|----------|
+| user1 | 333444 |
+| user2 | 555666 |
+
+---
+
+
+# Project Files Included
+
+- Source Code
+- README.md
+- intern_assessment_db.sql
+
+---
+
+# Notes
+
+- Developed using Laravel 13 and MySQL.
+- Database connection can be modified through the `.env` file.
+- Internet connection is required to load Bootstrap and SweetAlert2 CDN resources.
+- The application has been tested locally using XAMPP.
+
+---
+
+# Developed by:
+
+**Kamaliahnuruljannah Azman**
