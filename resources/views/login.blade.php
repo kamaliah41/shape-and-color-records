@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Shape and Color Records</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #d1e7dd; } /* Green pastel background */
@@ -10,8 +11,8 @@
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4 shadow-sm" style="width: 350px;">
-        <h3 class="text-center text-success fw-bold">Shape and Color Records</h3>
-        <h3 class="text-center text-success fw-bold">Login Page</h3>
+        <h3 class="text-center text-success fw-bold fs-4 text-nowrap">Shape and Color Records</h3>
+        <h3 class="text-center text-success fw-bold fs-5">Login Page</h3>
         
         @if(session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
