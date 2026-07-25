@@ -7,12 +7,24 @@ It allows admin to manage shape and color records while users can view records i
 ## Technologies Used
 
 - Laravel 13
-- PHP 8.4+
+- PHP 8.4
 - MySQL
 - Bootstrap 5
 - JavaScript (Fetch API)
 - SweetAlert2
 - HTML & CSS
+
+## Tested Environment
+
+The project has been successfully tested using:
+
+- Windows 11
+- XAMPP
+- PHP 8.4
+- MySQL
+- Composer
+- Node.js
+- Laravel 13
 
 ## List of Features:
 
@@ -198,6 +210,22 @@ http://127.0.0.1:8000
 - Database connection can be modified through the `.env` file.
 - Internet connection is required to load Bootstrap and SweetAlert2 CDN resources.
 - The application has been tested locally using XAMPP.
+
+## If the application cannot connect to the database:
+
+- Ensure MySQL service is running.
+
+- Ensure the database name is: intern_assessment_db
+
+- Verify your .env database credentials.
+
+- Run
+
+- php artisan config:clear
+
+- php artisan cache:clear
+
+- restart the application.
 
 ---
 
